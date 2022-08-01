@@ -1,0 +1,33 @@
+{% extends 'global/base.html' %}
+
+{% block title %}Dashboard ({{ user }}) | {% endblock title %}
+
+{% block content %}
+  <div class="main-content center container">
+    <h2>Dashboard ({{ user }})</h2>
+    {% include 'global/login_message.html' %}
+
+    <div class="authors-dashboard-conteiner">
+      <h3>your pokemons</h3>
+
+      <ul>
+        {% for pokemon in pokemons  %}
+          <li>
+            <a href="{% url 'authors:dash_edit' pokemon.id %}">{{ pokemon.name }}</a>-
+            <form action="{% url 'authors:dash_delete' pokemon.id %}" class="inline-form form-delete" method="POST"> {% csrf_token %}
+              <button type="submit" class='plaintext-button'>❌</button>
+            </form>
+          </li>
+        {% empty %}
+          <li>
+            <p>You didn't catch any pokemon</p>
+          </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>
+
+  {% include 'global/messages.html' %}
+
+  {% endblock content %} 

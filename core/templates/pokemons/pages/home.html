@@ -1,14 +1,9 @@
-{% include 'pokemons/partials/head.html' %}
-<body>
-    <header class="main-header-conteiner">
-        <div class="main-header conteiner">
-            <h1>
-                <a href="/">
-                    <span class="iconify" data-icon="mdi:pokeball"></span> 
-                    <span>{{ name }}</span>
-                </a>
-            </h1>
-        </div>
-    </header>
-</body>
-</html>
+{% extends 'global/base.html' %}
+
+{% block content %}
+{% comment %} <div class="main-content main-content-list conteiner"> {% endcomment %}
+    {% for pokemon in  pokemons  %}
+        {%include 'pokemons/partials/poke_card.html'%}
+    {% endfor %}
+{% comment %} </div> {% endcomment %}
+{% endblock content %}

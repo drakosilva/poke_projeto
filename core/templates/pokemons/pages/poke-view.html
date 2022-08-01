@@ -1,0 +1,9 @@
+{% extends 'global/base.html' %}
+{% block title %} {{ tipo }} - pokemon |{% endblock title %}
+
+    {% block content %}
+    <main class="main-content-conteiner">
+        <div class="main-content main-content-detail conteiner">
+            {%include 'pokemons/partials/poke_card.html'%}
+        </div>
+    {% endblock content %}

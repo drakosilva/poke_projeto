@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'pages/head.html' %}
+    <title>{% block title %}{% endblock title %} Pokemon</title>
+
+</head>
+
+
+<body>
+    {% include 'global/menu.html' %}
+    {% include 'pokemons/partials/header.html' %}
+    {%include 'pokemons/partials/search.html'%}
+
+    <main class="main-content-conteiner main-content-pok-list">
+        {% comment %} <div class="main-content main-content-list conteiner"> {% endcomment %}
+            {% block content %}{% endblock content %}
+            {%include 'pokemons/partials/pagination.html' %}
+        </div>
+        <div class="futer">
+        {%include 'pokemons/partials/footer.html'%}
+        
+        <script src="{% static 'global/js/scripts.js' %}"></script>
+    </div>
+    </main>
+</body>
+</html>
